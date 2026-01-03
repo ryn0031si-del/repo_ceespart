@@ -1,1 +1,211 @@
+/* === ABOUT PAGE STYLES === */
+body {
+  background: #090a1a; /* Background dasar Deep Dark */
+  color: #cbd5e1; /* Warna teks body umum */
+}
+main.container { padding: 4rem 0; }
 
+.page-header, .about-section, .vision-mission, .team-section {
+  background: #131629; /* Background Card Gelap */
+  border: 1px solid rgba(160, 196, 255, 0.1); /* Border halus */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  padding: 2rem;
+  margin-bottom: 3rem;
+}
+.page-header h2 {
+  font-size: 2rem; font-weight: 800;
+  color: #a0c4ff; /* Judul H2 Highlight */
+  margin-bottom: .5rem;
+}
+.page-header p {
+  font-size: 1.1rem;
+  color: #94a3b8; /* Deskripsi abu-abu terang */
+}
+@media (min-width:768px){ .about-section,.vision-mission,.team-section{padding:3rem;} }
+
+/* === ABOUT SECTION === */
+.about-section { display:grid; gap:2rem; align-items:center; }
+@media(min-width:768px){ .about-section{grid-template-columns:1fr 1.2fr; gap:3rem;} }
+
+.about-image img {
+  width:100%; height:400px; object-fit:cover; border-radius:12px;
+  opacity: 0.9; /* Sedikit redup agar menyatu */
+}
+.about-content h3 {
+  font-size:2rem; font-weight:800;
+  color: #a0c4ff; /* Judul H3 Highlight */
+  margin-bottom:1.5rem;
+}
+.about-content p {
+  font-size:1.1rem;
+  color: #cbd5e1; /* Teks konten */
+  line-height:1.7; margin-bottom:1rem;
+}
+
+/* === VISION & MISSION === */
+.vision-mission { display:grid; gap:2.5rem; }
+@media(min-width:768px){ .vision-mission{grid-template-columns:1fr 1fr;} }
+
+.vision-mission-card {
+  padding:1.5rem;
+  border:1px solid rgba(160, 196, 255, 0.1);
+  border-radius:12px;
+  background: #0f1221; /* Sedikit lebih gelap dari container */
+}
+.vision-mission-card h4 {
+  font-size:1.5rem; font-weight:700;
+  color: #fff; /* Judul Misi Putih */
+  margin-bottom:1rem; display:flex; align-items:center; gap:.75rem;
+}
+.vision-mission-card h4 i {
+  color: #a0c4ff; /* Icon Highlight */
+}
+.vision-mission-card p {
+  color: #94a3b8;
+}
+
+/* === TEAM SECTION === */
+.team-section { text-align:center; }
+.team-section h2 {
+  font-size:2.5rem; font-weight:800;
+  color: #a0c4ff;
+  margin-bottom:3rem;
+}
+.team-grid { display:grid; gap:2rem; grid-template-columns:1fr; }
+@media(min-width:576px){ .team-grid{grid-template-columns:1fr 1fr;} }
+@media(min-width:992px){ .team-grid{grid-template-columns:repeat(4,1fr);} }
+
+.team-member {
+  border:1px solid rgba(160, 196, 255, 0.1);
+  border-radius:12px; padding:2rem 1rem; transition:.3s;
+  background: #1c2540; /* Card Member */
+}
+.team-member:hover {
+  transform:translateY(-5px);
+  box-shadow:0 8px 20px rgba(52, 78, 137, 0.3); /* Shadow Biru */
+  border-color: #344e89;
+}
+.team-member img {
+  width:120px; height:120px; border-radius:50%; object-fit:cover; margin:0 auto 1.5rem;
+  border:4px solid #344e89; /* Border foto biru */
+}
+.team-member h4 {
+  font-size:1.25rem; font-weight:700; margin-bottom:.25rem;
+  color: #fff;
+}
+.team-member span {
+  color: #a0c4ff; /* Jabatan warna highlight */
+  font-weight:700; font-size:.9rem;
+}
+
+/* === FOOTER === */
+footer.footer {
+  background:#05060f; /* Footer sangat gelap */
+  color:#fff; padding:3rem 1rem 1rem; margin-top:4rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.footer-container {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:2rem; max-width:1200px; margin:0 auto;
+}
+.footer-column h3,h4 {
+  color: #a0c4ff;
+  font-weight:800; margin-bottom:1rem;
+}
+.footer-column h4 { font-size:1.2rem; font-weight:700; margin-bottom:.8rem; }
+.footer-column p, .footer-column ul li {
+  font-size:.95rem;
+  color: #94a3b8;
+  line-height:1.6;
+}
+.footer-column ul { list-style:none; padding:0; margin:0; }
+.footer-column ul li { display:flex; align-items:center; gap:.6rem; margin-bottom:.6rem; }
+.footer-column ul li i { color: #a0c4ff; }
+
+.social-links { display:flex; gap:.8rem; }
+.social-links a {
+  display:flex; align-items:center; justify-content:center;
+  background:#1c2540; color:#a0c4ff; width:40px; height:40px;
+  border-radius:50%; transition:.3s;
+}
+.social-links a:hover {
+  background: #a0c4ff; color: #090a1a;
+  transform:translateY(-4px);
+}
+.footer-bottom {
+  text-align:center; border-top:1px solid rgba(255,255,255,.1);
+  margin-top:2rem; padding-top:1rem; font-size:.9rem;
+  color: #64748b;
+}
+@media(max-width:600px){
+  footer.footer{text-align:center;}
+  .social-links{justify-content:center;}
+}
+/* ==============================================
+   CSS TAMBAHAN UNTUK INTERAKSI JS (Wajib Ada)
+   ============================================== */
+
+/* 1. Header Glassmorphism */
+header {
+    transition: all 0.4s ease;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+}
+header.scrolled {
+    background: rgba(9, 10, 26, 0.85); /* Dark Transparent */
+    backdrop-filter: blur(16px);       /* Efek Kaca Buram */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(160, 196, 255, 0.1);
+}
+
+/* 2. State Awal Scroll Reveal (Tersembunyi) */
+.hidden-element {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1), 
+                transform 0.8s cubic-bezier(0.5, 0, 0, 1);
+    will-change: opacity, transform;
+}
+/* State Akhir Scroll Reveal (Muncul) */
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 3. Smooth Transition untuk 3D Tilt */
+.product-card, .feature-item, .vision-mission-card, .team-member {
+    /* Transform cepat agar responsif, properti lain lambat agar halus */
+    transition: transform 0.1s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
+    will-change: transform;
+    transform-style: preserve-3d; /* Wajib untuk efek 3D */
+}
+
+/* 4. Ripple Effect Style */
+.btn-primary, .btn-card, .btn-see-all, button {
+    position: relative;
+    overflow: hidden; /* Mencegah ripple keluar tombol */
+}
+span.ripple {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border-radius: 50%;
+    animation: rippleAnim 0.6s linear;
+    width: 0;
+    height: 0;
+}
+@keyframes rippleAnim {
+    0% { width: 0px; height: 0px; opacity: 0.5; }
+    100% { width: 500px; height: 500px; opacity: 0; }
+}
+
+/* 5. Smooth Parallax Hero Image */
+.hero-image img {
+    transition: transform 0.1s ease-out;
+    will-change: transform;
+}
