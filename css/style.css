@@ -1,0 +1,1290 @@
+/* Import Font */
+html {
+    overflow-y: scroll; /* Memaksa scrollbar selalu muncul walau konten sedikit */
+}
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap');
+
+/* Variabel CSS - Updated Colors */
+:root {
+    --primary-color: #090a1a; /* Biru Utama Baru */
+    --secondary-color: #253560; /* Variasi lebih gelap untuk gradasi/hover */
+    --accent-color: #e2e8f0; /* Text terang (ganti krem/putih gading) agar terbaca di dark mode */
+    --highlight-color: #a0c4ff; /* Highlight Baru (Biru Muda) */
+    --text-color: #cbd5e1; /* Text Body menjadi abu-abu terang */
+    --bg-light: #090a1a; /* Background Dasar Baru (Deep Dark) */
+    --card-bg: #131629; /* Tambahan variabel untuk background kartu (pengganti putih) */
+    --border-radius: 12px;
+    --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Shadow dipergelap */
+}
+
+/* Reset dan Pengaturan Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header & Navigasi */
+header {
+    background-color: var(--primary-color); /* #344e89 */
+    color: white;
+    padding: 15px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: 800;
+    color: white;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: rgba(184, 255, 160, 0.2); /* Efek hover halus */
+    color: var(--highlight-color);
+}
+
+nav ul li a.active {
+    background-color: var(--highlight-color);
+    color: #090a1a; /* Text jadi gelap saat aktif agar kontras */
+}
+
+.profile-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Hero Section */
+.hero {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 60px 0;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h1 {
+    font-size: 3em;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 1.1em;
+    color: var(--accent-color);
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    background-color: var(--highlight-color);
+    color: #090a1a; /* Text gelap di tombol terang */
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 8px;
+    border: 2px solid var(--highlight-color);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--highlight-color);
+}
+
+.hero-image {
+    flex: 1;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+}
+
+
+/* Featured Products & Product Card */
+.featured-products {
+    padding: 80px 20px;
+}
+
+.featured-products h2 {
+    font-size: 2.5em;
+    font-weight: 800;
+    color: var(--highlight-color); /* Judul section jadi highlight */
+    margin-bottom: 70px;
+    text-align: center;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    /* Ganti gradient putih ke dark mode gradient */
+    background: linear-gradient(145deg, #131629, #0f1221);
+    border-radius: 20px;
+    border: 1.5px solid rgba(160, 196, 255, 0.1); /* Border highlight tipis */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 24px 18px;
+    transition: all 0.35s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Garis LED bawah */
+.product-card::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 80%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #a0c4ff, transparent); /* LED jadi biru muda */
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    transition: transform 0.4s ease;
+    border-radius: 10px;
+}
+
+.product-card:hover::before {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* Efek hover kartu */
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(52, 78, 137, 0.25); /* Shadow biru */
+    border-color: #344e89;
+}
+
+/* Gambar produk */
+.product-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 14px;
+    margin-bottom: 15px;
+    transition: transform 0.35s ease, filter 0.3s ease;
+    filter: brightness(0.9); /* Sedikit redup agar tidak silau */
+}
+
+.product-card:hover img {
+    transform: scale(1.07);
+    filter: brightness(1);
+}
+
+/* Nama produk */
+.product-card h3 {
+    font-size: 1.15rem;
+    color: #ffffff; /* Nama produk putih */
+    font-weight: 800;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+/* Harga */
+.product-card p {
+    font-size: 1rem;
+    color: #a0c4ff; /* Harga jadi warna highlight */
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+/* Tombol utama */
+.btn-card {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #344e89;
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efek cahaya garis di tombol */
+.btn-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.25),
+        transparent
+    );
+    transition: all 0.6s ease;
+}
+
+.btn-card:hover::after {
+    left: 100%;
+}
+
+.btn-card:hover {
+    background-color: #a0c4ff;
+    color: #090a1a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(160, 196, 255, 0.3);
+    border-color: #a0c4ff;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .product-card {
+        padding: 18px;
+    }
+    .product-card img {
+        height: 150px;
+    }
+    .product-card h3 {
+        font-size: 1rem;
+    }
+    .btn-card {
+        font-size: 0.9rem;
+        padding: 8px 14px;
+    }
+}
+
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.product-card img {
+    max-width: 100%;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+.product-card h3 {
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.product-card p {
+    color: var(--highlight-color);
+    font-weight: 800;
+}
+
+/* About & CTA Section */
+.about-cta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--card-bg); /* Ganti putih ke card-bg */
+    padding: 40px;
+    border-radius: var(--border-radius);
+    margin-bottom: 80px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.about-text h3 {
+    font-size: 1.5em;
+    font-weight: 800;
+    color: var(--highlight-color);
+    margin-bottom: 10px;
+}
+
+.btn-secondary {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: var(--highlight-color);
+    color: #090a1a;
+}
+
+/* Footer */
+footer {
+    background-color: #05060f; /* Footer lebih gelap lagi */
+    color: var(--accent-color);
+    padding: 50px 0;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.footer-col h4 {
+    font-size: 1.2em;
+    color: var(--highlight-color);
+    margin-bottom: 15px;
+}
+
+.footer-col p, .footer-col a {
+    color: var(--accent-color);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.footer-col a:hover {
+    color: var(--highlight-color);
+}
+
+.social-icons a {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 1.2em;
+}
+
+/* Styling untuk tombol Login/Register/Logout di Navigasi */
+.auth-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-nav-register {
+    background-color: var(--highlight-color);
+    color: #090a1a;
+    padding: 8px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+}
+
+.btn-nav-register:hover {
+    background-color: #8bb6f9;
+}
+
+.btn-nav-logout {
+    background-color: #e74c3c; /* Tetap merah untuk logout */
+    color: white;
+    padding: 8px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+}
+
+.btn-nav-logout:hover {
+    background-color: #c0392b;
+}
+
+/* CSS untuk Halaman Umum (Profil, Produk, Pesanan) */
+.page-header {
+    text-align: center;
+    padding: 40px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 40px;
+}
+
+.page-header h2 {
+    font-size: 2.5em;
+    font-weight: 800;
+    color: var(--highlight-color);
+    margin: 0;
+}
+
+.page-header p {
+    font-size: 1.1em;
+    color: #94a3b8;
+}
+
+/* CSS untuk Halaman Profil */
+.profile-card {
+    background-color: var(--card-bg); /* Ganti putih ke card-bg */
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    max-width: 800px;
+    margin: 0 auto 80px auto;
+    padding: 40px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.profile-info {
+    margin-bottom: 30px;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    font-weight: 700;
+    color: var(--highlight-color);
+    flex-basis: 30%;
+}
+
+.info-value {
+    color: #cbd5e1;
+    flex-basis: 70%;
+    text-align: right;
+}
+
+.profile-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+/* ===== Footer Modern ===== */
+footer.footer {
+    background-color: #05060f; /* Footer dark */
+    color: #fff;
+    padding: 3rem 1rem 1rem;
+    margin-top: 4rem;
+}
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.footer-column h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
+    color: var(--highlight-color);
+}
+.footer-column h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+    color: var(--highlight-color);
+}
+.footer-column p {
+    line-height: 1.6;
+    font-size: 0.95rem;
+    color: #94a3b8;
+}
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer-column ul li {
+    margin-bottom: 0.6rem;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.footer-column ul li i {
+    font-size: 1rem;
+    color: var(--highlight-color);
+}
+.social-links {
+    display: flex;
+    gap: 0.8rem;
+}
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1c2540;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+.social-links a:hover {
+    background: var(--highlight-color);
+    color: #090a1a;
+    transform: translateY(-4px);
+}
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 2rem;
+    padding-top: 1rem;
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+@media (max-width: 600px) {
+    footer.footer { text-align: center; }
+    .social-links { justify-content: center; }
+}
+
+/* CSS untuk Produk Slider */
+.product-slider-container {
+    position: relative;
+    padding: 0 50px 80px 50px;
+    margin: 0 auto;
+}
+
+.product-swiper {
+    padding-bottom: 50px !important;
+}
+
+.swiper-slide {
+    height: auto;
+}
+
+/* Reset btn-card inside slider if needed */
+.btn-card {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--highlight-color);
+    border: 2px solid var(--highlight-color);
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+.btn-card:hover {
+    background-color: var(--highlight-color);
+    color: #090a1a;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: var(--highlight-color) !important;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--highlight-color) !important;
+}
+
+/* CSS untuk Halaman Pesanan & Detail */
+.order-history-container, .order-detail-container {
+    background-color: var(--card-bg); /* Ganti putih ke card-bg */
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 80px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.empty-message {
+    text-align: center;
+    font-size: 1.2em;
+    color: #94a3b8;
+    padding: 50px 0;
+}
+
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.order-table th, .order-table td {
+    padding: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.order-table th {
+    font-weight: 700;
+    color: var(--highlight-color);
+}
+
+.order-table td {
+    color: #cbd5e1;
+    vertical-align: middle;
+}
+
+.status {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 700;
+    color: white;
+    text-transform: capitalize;
+}
+
+.status.menunggu-pembayaran { background-color: #f39c12; color: #000; }
+.status.diproses { background-color: #3498db; }
+.status.dikirim { background-color: #27ae60; }
+.status.selesai { background-color: #16a085; }
+.status.dibatalkan { background-color: #e74c3c; }
+
+.order-detail-container h3 {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--highlight-color);
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+}
+
+.order-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.order-item:last-child { border-bottom: none; }
+
+.item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.item-info {
+    flex-grow: 1;
+}
+
+.item-name {
+    display: block;
+    font-weight: 700;
+    color: #fff;
+}
+
+.item-qty {
+    font-size: 0.9em;
+    color: #94a3b8;
+}
+
+.item-price {
+    font-weight: 700;
+    color: var(--highlight-color);
+}
+
+.order-summary {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2em;
+    font-weight: 800;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #1c2540; /* bg summary */
+    border-radius: 8px;
+    color: #fff;
+}
+
+/* CSS untuk Halaman Chat */
+/* ========================================
+   HALAMAN CHAT - REFINED SYMMETRICAL DESIGN
+   ======================================== */
+
+.chat-container {
+    max-width: 900px;
+    height: 700px;
+    margin: 40px auto 80px auto;
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid rgba(160, 196, 255, 0.1);
+}
+
+.chat-header {
+    background: linear-gradient(90deg, #090a1a, #1c2540);
+    color: var(--highlight-color);
+    padding: 20px 25px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1.5px solid rgba(160, 196, 255, 0.1);
+}
+
+.chat-header i {
+    font-size: 1.4rem;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 30px;
+    overflow-y: auto;
+    background-image: radial-gradient(circle at center, #131629 0%, #090a1a 100%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--highlight-color) transparent;
+}
+
+/* Custom Scrollbar for Chrome/Safari */
+.chat-messages::-webkit-scrollbar {
+    width: 6px;
+}
+.chat-messages::-webkit-scrollbar-thumb {
+    background: var(--highlight-color);
+    border-radius: 10px;
+}
+
+/* --- BUBBLE PESAN --- */
+
+.message-bubble {
+    max-width: 65%;
+    padding: 14px 18px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.message-bubble p {
+    margin: 0;
+}
+
+.message-bubble .timestamp {
+    display: block;
+    font-size: 0.7rem;
+    margin-top: 8px;
+    opacity: 0.6;
+}
+
+/* PESAN DIKIRIM (ANDA/ADMIN) - Sebelah Kanan */
+.message-bubble.sent {
+    align-self: flex-end;
+    background: linear-gradient(135deg, #344e89, #253560); /* Biru Navy */
+    color: #ffffff;
+    border-radius: 18px 18px 4px 18px;
+    border: 1px solid rgba(160, 196, 255, 0.2);
+}
+
+.message-bubble.sent .timestamp {
+    text-align: right;
+    color: #a0c4ff;
+}
+
+/* PESAN DITERIMA (PELANGGAN/LAWAN BICARA) - Sebelah Kiri */
+.message-bubble.received {
+    align-self: flex-start;
+    background: #1e293b; /* Abu-abu Biru Gelap */
+    color: #e2e8f0;
+    border-radius: 18px 18px 18px 4px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.message-bubble.received .timestamp {
+    text-align: left;
+    color: #94a3b8;
+}
+
+/* Area Input Pesan */
+.chat-input-form {
+    display: flex;
+    align-items: center;
+    background: #0d0f1f;
+    padding: 15px 25px;
+    border-top: 1px solid rgba(160, 196, 255, 0.1);
+    gap: 15px;
+}
+
+.chat-input-form input {
+    flex-grow: 1;
+    background: #131629;
+    border: 1px solid rgba(160, 196, 255, 0.1);
+    border-radius: 25px;
+    padding: 12px 20px;
+    color: white;
+    font-family: 'Manrope', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.chat-input-form input:focus {
+    outline: none;
+    border-color: var(--highlight-color);
+    box-shadow: 0 0 10px rgba(160, 196, 255, 0.2);
+}
+
+.chat-input-form button {
+    background: var(--highlight-color);
+    color: #090a1a;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.chat-input-form button:hover {
+    transform: scale(1.1) rotate(-10deg);
+    background: #fff;
+    box-shadow: 0 0 15px var(--highlight-color);
+}
+/* CSS untuk Halaman About */
+.about-section {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background-color: var(--card-bg); /* Ganti putih ke card-bg */
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 60px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: var(--border-radius);
+}
+
+.about-content {
+    flex: 1.2;
+}
+
+.about-content h3 {
+    font-size: 2em;
+    font-weight: 800;
+    color: var(--highlight-color);
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    margin-bottom: 15px;
+    line-height: 1.7;
+    color: #cbd5e1;
+}
+
+.vision-mission {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.vision-mission-card {
+    background-color: var(--card-bg); /* Ganti putih ke card-bg */
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.vision-mission-card h4 {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--highlight-color);
+    margin-bottom: 15px;
+}
+
+.vision-mission-card h4 i {
+    color: var(--highlight-color);
+    margin-right: 10px;
+}
+
+.vision-mission-card p {
+    line-height: 1.6;
+    color: #cbd5e1;
+}
+
+.team-section {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.team-section h2 {
+    font-size: 2.5em;
+    font-weight: 800;
+    color: var(--highlight-color);
+    margin-bottom: 40px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.team-member {
+    background-color: var(--card-bg); /* Ganti putih ke card-bg */
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.team-member img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 4px solid var(--highlight-color);
+}
+
+.team-member h4 {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.team-member span {
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+/* Penyesuaian Responsif */
+@media (max-width: 992px) {
+    .hero-content, .about-section {
+        flex-direction: column;
+    }
+}
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+    }
+    .hero-text h1 {
+        font-size: 2.5em;
+    }
+    .about-cta {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .vision-mission {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===============================
+   CE3S PART — Refined Design
+   Font spacing & layout adjustment
+================================= */
+
+/* CE3S Part variables override for dark mode */
+.product-card {
+    background: linear-gradient(145deg, #131629, #0f1221); /* Dark Gradient */
+    border: 1.2px solid rgba(160, 196, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.product-card::before {
+    background: linear-gradient(90deg, transparent, #344e89, transparent);
+}
+
+.product-card h3 {
+    color: #fff;
+}
+
+.product-card p {
+    color: #a0c4ff;
+}
+
+/* Fix btn-card color in refined section */
+.btn-card {
+    background-color: #344e89;
+    color: white;
+}
+
+.btn-card:hover {
+    background-color: #253560;
+}
+
+footer p {
+    opacity: 0.85;
+    color: #cbd5e1;
+}
+/* checkout */
+/* Tambahan khusus elemen checkout */
+.checkout-summary {
+    margin-top: 20px;
+}
+
+.produk-item-checkout {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: #0d0f1f;
+    border-radius: var(--border-radius-small);
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.produk-item-checkout img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.total-payment {
+    text-align: right;
+    padding: 20px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.payment-method-box {
+    background: #0d0f1f;
+    padding: 20px;
+    border-radius: var(--border-radius-main);
+    border: 1px solid var(--border-color);
+}
+/* ========================================
+   HALAMAN CHECKOUT - DARK THEME REFINED
+   ======================================== */
+
+/* Container Utama Form Checkout */
+.checkout-form-container {
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border: 1px solid rgba(160, 196, 255, 0.1);
+    margin-bottom: 80px;
+}
+
+/* Grid Layout untuk memisahkan Data dan Ringkasan */
+.checkout-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+}
+
+/* Styling Section Title di Checkout */
+.checkout-section-title {
+    font-size: 1.4em;
+    font-weight: 800;
+    color: var(--highlight-color);
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+}
+
+/* Form Group & Input Styling */
+.checkout-group {
+    margin-bottom: 20px;
+}
+
+.checkout-group label {
+    display: block;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.checkout-group input, 
+.checkout-group textarea, 
+.checkout-group select {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #090a1a; /* Lebih gelap dari card */
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: white;
+    font-family: 'Manrope', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.checkout-group input:focus, 
+.checkout-group select:focus {
+    border-color: var(--highlight-color);
+    outline: none;
+    box-shadow: 0 0 8px rgba(160, 196, 255, 0.2);
+}
+
+/* Ringkasan Belanja */
+.checkout-summary {
+    background: #0d0f1f;
+    padding: 25px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    height: fit-content;
+}
+
+.produk-item-checkout {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.produk-item-checkout:last-child {
+    border-bottom: none;
+}
+
+.produk-item-checkout img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    background: #1a1d35;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.checkout-item-details h4 {
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 4px;
+}
+
+.checkout-item-details p {
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+/* Bagian Total Pembayaran */
+.total-payment {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px dashed var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total-payment span:first-child {
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.total-payment .amount {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--highlight-color);
+}
+
+/* Kotak Metode Pembayaran */
+.payment-method-box {
+    margin-top: 25px;
+    padding: 20px;
+    background: rgba(160, 196, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(160, 196, 255, 0.1);
+}
+
+/* Panduan Pembayaran (Bank/E-wallet) */
+.payment-guide-info {
+    margin-top: 15px;
+    padding: 15px;
+    background: #131629;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    display: none; /* Muncul via JS jika metode dipilih */
+}
+
+/* Tombol Submit Checkout */
+.btn-checkout-submit {
+    width: 100%;
+    margin-top: 30px;
+    background-color: var(--highlight-color);
+    color: #090a1a;
+    padding: 18px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-checkout-submit:hover {
+    background-color: #8bb6f9;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(160, 196, 255, 0.3);
+}
+
+/* Responsif Checkout */
+@media (max-width: 992px) {
+    .checkout-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .checkout-form-container {
+        padding: 25px;
+    }
+}
+/* status beli */

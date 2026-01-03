@@ -1,0 +1,168 @@
+/* === SEARCH === */
+.search-container{display:flex;justify-content:center;margin:40px auto 60px;}
+.search-container form{position:relative;width:100%;max-width:600px;}
+.search-container input[type="text"]{
+  width:100%;padding:14px 55px 14px 20px;border:none;border-radius:50px;
+  font-size:16px;
+  /* Background input gelap, teks putih */
+  background:#131629; color:#fff;
+  box-shadow:0 2px 10px rgba(0,0,0,.3);
+  outline:none;transition:.3s;
+}
+.search-container input[type="text"]:focus{
+  /* Fokus background sedikit lebih terang */
+  background:#1c2540;
+  box-shadow:0 3px 15px rgba(52, 78, 137, 0.25);
+}
+.search-container button{
+  position:absolute;right:8px;top:50%;transform:translateY(-50%);
+  /* Gradient tombol search menggunakan #344e89 */
+  background:linear-gradient(135deg,#344e89,#253560);
+  border:none;color:#fff;padding:10px 18px;border-radius:50px;
+  font-weight:600;cursor:pointer;transition:.3s;
+}
+.search-container button:hover{
+  /* Hover gradient menjadi highlight #a0c4ff */
+  background:linear-gradient(135deg,#a0c4ff,#344e89);
+  color: #090a1a;
+  box-shadow:0 3px 10px rgba(160, 196, 255, 0.3);
+}
+
+/* === PRODUK CARD === */
+.product-card{
+  /* Card background gelap navy */
+  background:#131629;
+  border: 1px solid rgba(160, 196, 255, 0.1); /* Tambahan border tipis agar terlihat di dark mode */
+  border-radius:18px;padding:18px;text-align:center;
+  box-shadow:0 2px 10px rgba(0,0,0,.3);
+  transition:all .35s ease;
+}
+.product-card:hover{
+  transform:translateY(-8px);
+  /* Shadow biru saat hover */
+  box-shadow:0 8px 20px rgba(52, 78, 137, 0.25);
+  border-color: #344e89;
+}
+.product-card img{width:100%;height:200px;object-fit:contain;margin-bottom:15px;}
+
+.product-card h3{
+  font-size:1.05rem;
+  color:#fff; /* Judul produk putih */
+  margin-bottom:6px;font-weight:700;
+}
+.product-card p{
+  font-size:.95rem;
+  color:#a0c4ff; /* Harga/Deskripsi jadi warna highlight */
+  margin-bottom:15px;
+}
+.btn-card{
+  display:inline-block;
+  /* Gradient tombol card */
+  background:linear-gradient(135deg,#344e89,#253560);
+  color:#fff;padding:10px 20px;border-radius:30px;font-weight:600;
+  font-size:.9rem;text-decoration:none;transition:.3s;
+}
+.btn-card:hover{
+  background:linear-gradient(135deg,#a0c4ff,#344e89);
+  color: #090a1a;
+  box-shadow:0 4px 10px rgba(160, 196, 255, 0.3);
+}
+.empty-message{text-align:center;font-size:17px;color:#94a3b8;margin-top:30px;}
+
+/* === FOOTER MODERN === */
+footer.footer{
+  background:#05060f; /* Footer sangat gelap */
+  color:#fff;padding:3rem 1rem 1rem;margin-top:4rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.footer-container{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:2rem;max-width:1200px;margin:0 auto;
+}
+.footer-column h3{font-size:1.6rem;margin-bottom:1rem;font-weight:800;color:#a0c4ff;}
+.footer-column h4{font-size:1.2rem;margin-bottom:.8rem;font-weight:700;color:#a0c4ff;}
+.footer-column p{line-height:1.6;font-size:.95rem;color:#b0b8c4;}
+.footer-column ul{list-style:none;padding:0;margin:0;}
+.footer-column ul li{
+  margin-bottom:.6rem;font-size:.95rem;display:flex;align-items:center;gap:.6rem;
+  color: #cbd5e1;
+}
+.footer-column ul li i{font-size:1rem;color:#a0c4ff;}
+.social-links{display:flex;gap:.8rem;}
+.social-links a{
+  display:flex;align-items:center;justify-content:center;
+  background:#1c2540;color:#a0c4ff;width:40px;height:40px;
+  border-radius:50%;transition:.3s;
+}
+.social-links a:hover{
+  background:#a0c4ff;color:#090a1a;transform:translateY(-4px);
+}
+.footer-bottom{
+  text-align:center;border-top:1px solid rgba(255,255,255,.1);
+  margin-top:2rem;padding-top:1rem;font-size:.9rem;color:#64748b;
+}
+@media(max-width:600px){
+  footer.footer{text-align:center;}
+  .social-links{justify-content:center;}
+}
+/* === PRODUK GRID (TAMPIL KE BAWAH) === */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+/* === TAMBAHAN UNTUK JAVASCRIPT ANIMATION === */
+
+/* 1. Sticky Navbar Style */
+header {
+    transition: all 0.4s ease;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Class ini ditambahkan oleh JS saat discroll */
+header.scrolled {
+    background: rgba(9, 10, 26, 0.9); /* Transparan gelap */
+    backdrop-filter: blur(12px); /* Efek kaca buram */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(160, 196, 255, 0.1);
+}
+
+/* 2. Scroll Reveal Animation States */
+.hidden-element {
+    opacity: 0;
+    transform: translateY(40px); /* Geser ke bawah sedikit */
+    transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1), 
+                transform 0.8s cubic-bezier(0.5, 0, 0, 1);
+    will-change: opacity, transform;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 3. Smooth Transition untuk Tilt Effect */
+.product-card, .feature-item {
+    /* Transisi transform harus cepat (0.1s) agar responsif mengikuti mouse, 
+       tapi transisi properti lain (border, shadow) tetap normal */
+    transition: transform 0.1s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
+    will-change: transform;
+}
+
+/* 4. Hero Image Transition */
+.hero-image img {
+    transition: transform 0.2s ease-out;
+}
+
+/* 5. Search Container Focus Animation */
+.search-container {
+    transition: transform 0.3s ease;
+}
+.search-container.focused {
+    transform: scale(1.02);
+}

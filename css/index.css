@@ -1,0 +1,726 @@
+/* Paksa scrollbar selalu muncul agar layout tidak loncat */
+html {
+    overflow-y: scroll;
+}
+/* === BODY === */
+body {
+  /* Menggunakan font Poppins yang sudah ada */
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #090a1a; /* Warna dasar (Deep Dark) - Sesuai style.css */
+  color: #cbd5e1; /* Warna teks body disamakan dengan style.css (sebelumnya #e2e8f0) */
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Gradient overlay untuk memberikan efek 'glow' misterius */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  /* Mengubah gradient menjadi biru keunguan transparan */
+  background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(52, 78, 137, 0.25), transparent 80%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Tombol Lihat Semua Produk */
+.section-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-see-all {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .9rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  /* Gradient menggunakan warna #344e89 sebagai basis */
+  background: linear-gradient(135deg, #344e89, #253560);
+  border: 1px solid rgba(160, 196, 255, 0.1); /* Border highlight tipis */
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(52, 78, 137, 0.4); /* Shadow biru bersinar */
+  text-decoration: none;
+  transition: .4s;
+}
+
+.btn-see-all i {
+  font-size: 1.1rem;
+  transition: .4s;
+  color: #a0c4ff; /* Icon menggunakan warna highlight */
+}
+
+.btn-see-all:hover {
+  background: linear-gradient(135deg, #a0c4ff, #344e89); /* Efek hover lebih terang */
+  color: #090a1a; /* Teks berubah gelap saat hover agar kontras */
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 25px rgba(160, 196, 255, 0.3);
+}
+
+.btn-see-all:hover i {
+  transform: translateX(5px);
+  color: #090a1a;
+}
+
+/* Fitur Modern */
+.features-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 2rem;
+  margin: 4rem auto;
+  max-width: 1100px;
+  text-align: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.feature-item {
+  flex: 1;
+  min-width: 250px;
+  padding: 2rem 1.5rem;
+  /* Background item disamakan dengan variabel card-bg style.css */
+  background: #131629; 
+  border: 1px solid rgba(160, 196, 255, 0.05); /* Border halus */
+  border-radius: 15px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  transition: .4s;
+}
+
+.feature-item:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: #344e89;
+  box-shadow: 0 10px 30px rgba(52, 78, 137, 0.2);
+}
+
+.feature-item i {
+  font-size: 2.5rem;
+  color: #a0c4ff; /* Ikon menjadi warna terang (Highlight) */
+  margin-bottom: 1rem;
+  transition: .4s;
+  text-shadow: 0 0 15px rgba(160, 196, 255, 0.4); /* Efek neon glow */
+}
+
+.feature-item:hover i {
+  transform: scale(1.2) rotate(10deg);
+  color: #fff;
+}
+
+.feature-item h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: .5rem;
+  color: #fff; /* Judul putih agar jelas */
+}
+
+.feature-item p {
+  font-size: .95rem;
+  color: #94a3b8; /* Teks deskripsi abu-abu (disamakan dengan style.css) */
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Produk Unggulan */
+.section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #a0c4ff; /* Judul section menggunakan warna highlight */
+  margin: 0 0 .5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.section-header p {
+  font-size: 1rem;
+  color: #94a3b8; /* Warna teks disamakan */
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Produk Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.product-card {
+  /* Menggunakan gradient dark yang sama dengan style.css */
+  background: linear-gradient(145deg, #131629, #0f1221);
+  border: 1px solid rgba(160, 196, 255, 0.1); /* Border highlight tipis */
+  border-radius: 18px;
+  padding: 18px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all .4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  /* Efek hover background biru transparan */
+  background: radial-gradient(circle at center, rgba(52, 78, 137, 0.2), transparent);
+  transform: scale(0);
+  transition: transform .5s ease;
+  border-radius: 18px;
+  z-index: 0;
+}
+
+.product-card:hover::before {
+  transform: scale(1.5);
+}
+
+.product-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: #344e89;
+  box-shadow: 0 10px 25px rgba(52, 78, 137, 0.25);
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 15px;
+  transition: transform .4s ease;
+  filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3)); /* Bayangan pada gambar produk */
+}
+
+.product-card:hover img {
+  transform: scale(1.05) rotate(-1deg);
+}
+
+.product-card h3 {
+  font-size: 1.05rem;
+  color: #fff; /* Judul produk putih */
+  margin-bottom: 6px;
+  font-weight: 700;
+  position: relative; z-index: 1;
+}
+
+.product-card p {
+  font-size: .95rem;
+  color: #a0c4ff; /* Harga atau deskripsi menggunakan warna highlight */
+  margin-bottom: 15px;
+  position: relative; z-index: 1;
+}
+
+.btn-card {
+  display: inline-block;
+  position: relative; z-index: 1;
+  background: transparent;
+  color: #a0c4ff;
+  border: 1px solid #344e89;
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: .9rem;
+  text-decoration: none;
+  transition: .4s;
+}
+
+.btn-card:hover {
+  background: #344e89;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(52, 78, 137, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Footer */
+footer.footer {
+  background: #05060f; /* Footer lebih gelap dari body (matches style.css) */
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Border lebih halus */
+  color: #ffffff;
+  padding: 3rem 1rem 1rem;
+  margin-top: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-column h3,
+.footer-column h4 {
+  color: #a0c4ff; /* Judul footer warna highlight */
+  margin-bottom: .8rem;
+  font-weight: 800;
+}
+
+.footer-column h3 { font-size: 1.6rem; }
+.footer-column h4 { font-size: 1.2rem; }
+
+.footer-column p {
+  line-height: 1.6;
+  font-size: .95rem;
+  color: #94a3b8; /* Warna teks deskripsi (matches style.css) */
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column li {
+  margin-bottom: .6rem;
+  font-size: .95rem;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  color: #cbd5e1; /* Warna teks list (matches style.css) */
+}
+
+.footer-column li i {
+  font-size: 1rem;
+  color: #a0c4ff; /* Icon footer menggunakan warna highlight */
+}
+
+.social-links {
+  display: flex;
+  gap: .8rem;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1c2540;
+  color: #a0c4ff; /* Icon warna highlight */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: .4s;
+}
+
+.social-links a:hover {
+  background: #a0c4ff; /* Hover background highlight */
+  color: #090a1a; /* Icon menjadi gelap */
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: 0 0 10px rgba(160, 196, 255, 0.4);
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 2rem;
+  padding-top: 1rem;
+  font-size: .9rem;
+  color: #64748b; /* Warna teks footer bottom (matches style.css) */
+}
+
+@media(max-width: 600px) {
+  footer.footer { text-align: center; }
+  .social-links { justify-content: center; }
+}
+
+/* === TAMBAHAN UNTUK JAVASCRIPT ANIMATION === */
+
+/* 1. Sticky Header Style */
+header {
+    transition: all 0.4s ease;
+    /* Pastikan header punya z-index tinggi */
+    position: sticky; 
+    top: 0;
+    z-index: 1000;
+}
+
+header.scrolled {
+    background: rgba(9, 10, 26, 0.85); /* Warna dasar #090a1a transparan */
+    backdrop-filter: blur(10px); /* Efek blur kaca */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    padding: 10px 0; /* Navigasi sedikit mengecil */
+}
+
+/* 2. Scroll Reveal (Hidden State) */
+.hidden-element {
+    opacity: 0;
+    transform: translateY(50px); /* Geser ke bawah 50px */
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+/* Scroll Reveal (Visible State - dipicu JS) */
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger delay untuk product card (agar muncul berurutan) */
+.product-card:nth-child(1) { transition-delay: 0.1s; }
+.product-card:nth-child(2) { transition-delay: 0.2s; }
+.product-card:nth-child(3) { transition-delay: 0.3s; }
+.product-card:nth-child(4) { transition-delay: 0.4s; }
+
+/* 3. Smooth Transition untuk Hero Image Parallax */
+.hero-image img {
+    transition: transform 0.1s ease-out; /* Transisi sangat cepat agar responsif mouse */
+    will-change: transform;
+}
+
+/* 4. Efek Ripple pada Tombol (Opsional) */
+.btn-primary, .btn-card {
+    position: relative;
+    overflow: hidden;
+}
+
+span.ripple {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border-radius: 50%;
+    animation: animateRipple 1s linear infinite;
+}
+
+@keyframes animateRipple {
+    0% { width: 0px; height: 0px; opacity: 0.5; }
+    100% { width: 500px; height: 500px; opacity: 0; }
+}
+/* --- CSS UNTUK NAVBAR DESKTOP (DEFAULT) --- */
+/* Pastikan nav container menggunakan Flexbox */
+nav.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    position: relative; /* Penting untuk positioning mobile */
+}
+
+/* Sembunyikan Hamburger di Desktop */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #333; /* Warna garis hamburger */
+}
+
+/* Wrapper Menu di Desktop harus lurus (Row) */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: auto;
+}
+
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- CSS KHUSUS MOBILE (RESPONSIVE) --- */
+@media (max-width: 768px) {
+    /* Tampilkan Hamburger */
+    .hamburger {
+        display: block;
+        z-index: 1001; /* Agar di atas menu */
+    }
+
+    /* Animasi Hamburger menjadi X */
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Styling Menu Slide (Sidebar) */
+    .nav-menu {
+        position: fixed;
+        right: -100%; /* Sembunyi di kanan layar */
+        top: 0;
+        flex-direction: column;
+        background-color: #ffffff; /* Latar belakang putih */
+        width: 70%; /* Lebar menu 70% layar */
+        height: 100vh; /* Tinggi full layar */
+        text-align: center;
+        transition: 0.4s ease; /* Kecepatan slide */
+        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+        padding-top: 80px; /* Jarak dari atas */
+        z-index: 1000;
+        gap: 30px;
+    }
+
+    /* Class Active untuk memunculkan menu */
+    .nav-menu.active {
+        right: 0; /* Geser ke layar */
+    }
+
+    /* Ubah arah list menu jadi vertikal */
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    /* Penyesuaian Auth Links di Mobile */
+    .auth-links {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+}
+/* =========================================
+   NAVBAR & RESPONSIVE MENU STYLING (REVISI)
+   ========================================= */
+
+/* --- 1. NAVBAR CONTAINER (Agar tidak mepet kiri-kanan) --- */
+nav.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    /* PERBAIKAN JARAK TEPI: */
+    width: 90%;          /* Menggunakan 90% lebar layar agar ada sela kiri-kanan */
+    max-width: 1200px;   /* Membatasi lebar maksimal di layar besar agar tetap rapi */
+    margin: 0 auto;      /* Posisi otomatis di tengah (Center) */
+    padding: 20px 0;     /* Jarak atas-bawah navbar */
+    position: relative;
+}
+
+/* --- 2. LOGO STYLING --- */
+.logo {
+    font-size: 1.6rem;   /* Ukuran font logo diperbesar sedikit */
+    font-weight: 800;    /* Tulisan tebal */
+    color: #fff;         /* Warna putih terang */
+    text-decoration: none;
+    letter-spacing: 1px; /* Jarak antar huruf */
+    z-index: 1003;       /* Pastikan logo selalu di atas elemen lain */
+}
+
+/* --- 3. MENU DESKTOP (Tampilan Laptop/PC) --- */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu ul li a {
+    text-decoration: none;
+    color: #cbd5e1;      /* Warna abu-abu terang */
+    font-weight: 600;    /* Ketebalan font */
+    font-size: 1rem;     /* Ukuran standar */
+    transition: color 0.3s;
+    display: block;      /* Agar area klik jelas */
+}
+
+/* Efek Hover & Aktif */
+.nav-menu ul li a:hover,
+.nav-menu ul li a.active {
+    color: #a0c4ff;      /* Warna biru muda saat disentuh */
+}
+
+/* Tombol Hamburger (Sembunyi di Desktop) */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    z-index: 1003;       /* Harus lebih tinggi dari menu slide */
+}
+
+/* Garis Hamburger */
+.bar {
+    display: block;
+    width: 28px;
+    height: 3px;
+    margin: 6px auto;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+    background-color: #fff;
+}
+
+/* --- 4. NAVBAR MOBILE (RESPONSIVE < 768px) --- */
+@media (max-width: 768px) {
+    
+    /* Tampilkan Tombol Hamburger */
+    .hamburger {
+        display: block;
+    }
+
+    /* Animasi Hamburger menjadi 'X' */
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+        background-color: #a0c4ff;
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+        background-color: #a0c4ff;
+    }
+
+    /* Styling Menu Slide (Sidebar Mobile) */
+    .nav-menu {
+        position: fixed;
+        right: -100%;        /* Sembunyi di kanan */
+        top: 0;
+        
+        /* Layout Vertikal */
+        flex-direction: column;
+        justify-content: flex-start; /* Isi mulai dari atas */
+        align-items: center;         /* Tengah secara horizontal */
+        
+        /* TEMA GELAP (Sesuai Website) */
+        background: rgba(15, 18, 33, 0.98); 
+        backdrop-filter: blur(10px);
+        
+        width: 70%;          /* Lebar menu 70% layar */
+        height: 100vh;       /* Tinggi full layar */
+        padding-top: 100px;  /* Jarak dari atas agar tidak nabrak logo */
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1001;
+        box-shadow: -5px 0 30px rgba(0,0,0,0.5);
+    }
+
+    /* Class Active (Menu Muncul) */
+    .nav-menu.active {
+        right: 0;
+    }
+
+    /* List Menu (Home, Produk, dll) */
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 30px;           /* Jarak antar menu */
+        text-align: center;
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    .nav-menu ul li a {
+        font-size: 1.3rem;   /* Font lebih besar di HP agar terbaca */
+        color: #fff;         /* Warna PUTIH TERANG agar 'Home' terlihat jelas */
+        padding: 10px;
+    }
+
+    /* Bagian Login/Register di Mobile */
+    .auth-links {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 80%;
+        text-align: center;
+    }
+
+    /* Opsional: Gelapkan layar belakang saat menu terbuka */
+    .nav-menu::before {
+        content: '';
+        position: fixed;
+        top: 0; left: -100vw;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0,0,0,0.6);
+        opacity: 0;
+        transition: opacity 0.4s;
+        pointer-events: none;
+        z-index: -1;
+    }
+    .nav-menu.active::before {
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+/* =========================================
+   PERBAIKAN TAMPILAN NAVBAR (VISIBLE TEXT)
+   ========================================= */
+
+/* 1. Pastikan Header Selalu di Atas */
+header {
+    position: sticky; /* Agar menempel saat scroll (opsional, bisa ganti relative) */
+    top: 0;
+    width: 100%;
+    z-index: 9999; /* Angka tinggi agar tidak tertutup gambar hero */
+    background: transparent; /* Atau ganti #090a1a jika ingin background gelap solid */
+    transition: background 0.4s;
+}
+
+/* Jika discroll, beri background gelap (perlu JS script.js yg sebelumnya) */
+header.scrolled {
+    background: rgba(9, 10, 26, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+/* 2. Warna Teks Menu (DESKTOP) */
+.nav-menu ul li a {
+    text-decoration: none;
+    color: #ffffff !important; /* !important memaksa warna jadi PUTIH */
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Bayangan agar terbaca di background terang/gelap */
+}
+
+/* Warna saat kursor diarahkan (Hover) & Menu Aktif */
+.nav-menu ul li a:hover,
+.nav-menu ul li a.active {
+    color: #a0c4ff !important; /* Warna Biru Muda */
+}
+
+/* 3. Link Login/Register (Auth) */
+.auth-links .profile-link {
+    color: #ffffff !important;
+    font-weight: 600;
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+/* --- KHUSUS MOBILE (Agar tulisan tetap putih di HP) --- */
+@media (max-width: 768px) {
+    .nav-menu ul li a {
+        color: #ffffff !important; /* Tetap putih di mobile */
+        font-size: 1.3rem; /* Perbesar sedikit di HP */
+        margin-bottom: 10px;
+        display: block;
+    }
+    
+    /* Pastikan menu mobile punya background gelap */
+    .nav-menu {
+        background: rgba(15, 18, 33, 0.98); 
+    }
+}

@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+:root {
+  /* === UPDATED COLORS === */
+  --primary: #344e89;      /* Biru Utama */
+  --primary-light: #a0c4ff; /* Highlight Biru Muda */
+  --dark: #253560;         /* Biru Gelap untuk elemen aktif/tombol */
+  
+  --grey-dark: #cbd5e1;    /* Teks Utama (Terang) */
+  --grey: #94a3b8;         /* Teks Muted/Secondary */
+  --grey-light: rgba(160, 196, 255, 0.15); /* Border transparan */
+  
+  --white: #fff;           /* Tetap putih untuk teks kontras/icon */
+  --bg-body: #090a1a;      /* Background Halaman */
+  --bg-card: #131629;      /* Background Kartu */
+  
+  --green: #28a745;        /* Sukses (Tetap hijau) */
+  --dog: #a0522d;          /* Warna Anjing (Tetap Coklat) */
+  --dog-light: #d2b48c;
+}
+
+body {
+  font-family:'Nunito',sans-serif;
+  background: var(--bg-body); /* Background #090a1a */
+  color: var(--grey-dark);
+  margin:0;
+  padding:20px;
+}
+
+.checkout-container {
+  max-width:850px;
+  background: var(--bg-card); /* Background #131629 */
+  margin:40px auto;
+  padding:40px;
+  border-radius:16px;
+  /* Shadow disesuaikan untuk dark mode */
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
+  border: 1px solid var(--grey-light);
+}
+
+h2 {
+  color: var(--primary-light); /* Judul jadi warna highlight */
+  text-align:center;
+  font-size:2.2rem;
+  margin-bottom:25px;
+}
+h3 {
+  color: var(--grey-dark);
+  margin-bottom:20px;
+  border-bottom:2px solid var(--grey-light);
+  padding-bottom:10px;
+}
+
+label {
+  font-weight:600;
+  margin:10px 0 5px;
+  display:block;
+  font-size:.9rem;
+  color: var(--grey-dark);
+}
+
+input[type=text],input[type=tel],textarea,select {
+  width:100%;
+  padding:12px;
+  /* Input background lebih gelap dari card */
+  background: #090a1a; 
+  border:1px solid var(--grey-light);
+  border-radius:8px;
+  font-size:1rem;
+  margin-top:5px;
+  transition:.3s;
+  color: #fff; /* Teks input putih */
+}
+input:focus,textarea:focus,select:focus {
+  border-color: var(--primary-light);
+  box-shadow:0 0 8px rgba(160, 196, 255, 0.2);
+  outline:none;
+}
+textarea{resize:vertical;min-height:80px;}
+
+.produk-list{
+  margin-top:25px;
+  border-top:1px solid var(--grey-light);
+  padding-top:20px;
+}
+.produk-item{
+  display:flex;align-items:center;
+  border-bottom:1px solid var(--grey-light);
+  padding:12px 0;
+}
+.produk-item:last-child{border-bottom:none;}
+.produk-item img{
+  width:60px;height:60px;object-fit:cover;
+  border-radius:8px;margin-right:15px;
+  border:1px solid var(--grey-light);
+  background: #000;
+}
+.produk-item p{margin:0;font-size:1rem;font-weight:600; color: #fff;}
+.produk-item small{color: var(--grey); font-size:.9rem;}
+
+.total-harga{
+  text-align:right;font-weight:700;font-size:1.2rem;
+  color: var(--primary-light); /* Harga jadi highlight */
+  margin-top:15px;padding-top:15px;
+  border-top:2px dashed var(--grey-light);
+}
+
+.payment-info,.payment-option{
+  display:none;
+  background: #1c2540; /* Background area pembayaran sedikit beda */
+  padding:15px 20px;
+  border-radius:8px;
+  margin-top:10px;
+  border:1px solid var(--grey-light);
+  color: var(--grey-dark);
+}
+.payment-info{border-left:5px solid var(--primary);}
+.payment-option{border-left:4px solid var(--primary-light);}
+.payment-option img{width:140px;margin:8px auto;display:block;border-radius:10px;}
+
+/* --- Tombol Animasi (fungsi tetap, warna disesuaikan) --- */
+.order{
+  appearance:none;border:0;outline:none;cursor:pointer;
+  width:100%;height:63px;border-radius:32px;margin-top:20px;
+  background: var(--primary); /* Tombol biru */
+  overflow:hidden;position:relative;
+  transition:transform .3s;
+}
+.order:active{transform:scale(.98);}
+.order span{
+  position:absolute;left:0;right:0;top:19px;text-align:center;
+  color:var(--white);font-size:16px;font-weight:600;
+  opacity:var(--o);transition:opacity .3s;
+}
+.order .default{--o:1;transition-delay:.3s;}
+.order .success{--offset:16px;--o:0;transition-delay:7s;}
+.order .success svg{
+  width:12px;height:10px;fill:none;stroke:var(--green);stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:16px;stroke-dashoffset:var(--offset);
+  transition:stroke-dashoffset .3s;
+}
+.order .lines{
+  opacity:0;position:absolute;height:3px;background:var(--white);
+  border-radius:2px;width:6px;top:30px;left:100%;
+  box-shadow:repeat(22,calc(var(--i,0)*15px) 0 0 var(--white));
+}
+
+/* Runner */
+.runner{position:absolute;left:-50px;top:10px;width:40px;height:45px;z-index:2;}
+.runner .head{width:15px;height:15px;background:var(--white);border-radius:50%;position:absolute;left:15px;top:0;}
+.runner .body{width:18px;height:25px;background:var(--primary-light);border-radius:5px;position:absolute;left:14px;top:14px;}
+.runner .leg,.runner .arm{position:absolute;border-radius:3px;transform-origin:top center;}
+.runner .leg{width:6px;height:18px;background:var(--grey);top:35px;}
+.runner .leg.left{left:18px;transform:rotate(20deg);}
+.runner .leg.right{left:25px;transform:rotate(-20deg);}
+.runner .arm{width:5px;height:15px;background:var(--primary-light);top:18px;}
+.runner .arm.left{left:10px;transform:rotate(-30deg);}
+.runner .arm.right{left:28px;transform:rotate(30deg);}
+
+/* Dog */
+.dog{position:absolute;left:-80px;top:25px;width:40px;height:25px;z-index:1;opacity:0;}
+.dog div{position:absolute;background:var(--dog);}
+.body-dog{width:25px;height:15px;border-radius:50%;left:5px;top:5px;}
+.head-dog{width:15px;height:15px;border-radius:50%;left:0;top:0;}
+.ear{width:5px;height:8px;border-radius:0 50% 0 50%;top:-3px;}
+.ear.left-ear{left:2px;transform:rotate(-15deg);}
+.ear.right-ear{left:8px;transform:rotate(15deg);}
+.tail{width:5px;height:12px;right:-8px;top:10px;border-radius:50% 0 50% 0;transform:rotate(30deg);transform-origin:bottom center;}
+.leg-dog{width:5px;height:10px;top:20px;border-radius:0 0 3px 3px;transform-origin:top center;}
+.front-left{left:10px;transform:rotate(15deg);}
+.front-right{left:18px;transform:rotate(-15deg);}
+.back-left{left:25px;transform:rotate(15deg);}
+.back-right{left:33px;transform:rotate(-15deg);}
+
+/* Animations */
+.order.animate .default{--o:0;transition-delay:0s;}
+.order.animate .success{--offset:0;--o:1;transition-delay:7s;}
+.order.animate .success svg{transition-delay:7.3s;}
+.order.animate .runner{animation:runnerMove 10s ease forwards;}
+.order.animate .leg.left{animation:legLeft .6s ease-in-out infinite;}
+.order.animate .leg.right{animation:legRight .6s ease-in-out infinite;}
+.order.animate .arm.left{animation:armLeft .6s ease-in-out infinite;}
+.order.animate .arm.right{animation:armRight .6s ease-in-out infinite;}
+.order.animate .dog{animation:dogMove 10s ease forwards,dogLegs .6s ease-in-out infinite;}
+.order.animate .tail{animation:dogTailWag .3s ease-in-out infinite;}
+.order.animate .lines{animation:lines 10s ease forwards;}
+
+/* Keyframes (tidak diubah) */
+@keyframes runnerMove{0%{transform:translateX(0);}100%{transform:translateX(calc(100vw + 50px));}}
+@keyframes legLeft{0%,100%{transform:rotate(20deg);}50%{transform:rotate(-40deg);}}
+@keyframes legRight{0%,100%{transform:rotate(-20deg);}50%{transform:rotate(40deg);}}
+@keyframes armLeft{0%,100%{transform:rotate(-30deg);}50%{transform:rotate(45deg);}}
+@keyframes armRight{0%,100%{transform:rotate(30deg);}50%{transform:rotate(-45deg);}}
+@keyframes dogMove{0%{transform:translateX(0);opacity:0;}5%{transform:translateX(20px);opacity:1;}100%{transform:translateX(calc(100vw + 80px));opacity:1;}}
+@keyframes dogLegs{0%,100%{transform:translateY(0)rotate(10deg);}50%{transform:translateY(2px)rotate(-10deg);}}
+@keyframes dogTailWag{0%,100%{transform:rotate(30deg);}50%{transform:rotate(-30deg);}}
+@keyframes lines{0%,30%{opacity:0;transform:scaleY(.7)translateX(0);}35%,65%{opacity:1;}70%{opacity:0;}100%{transform:scaleY(.7)translateX(-400px);}}

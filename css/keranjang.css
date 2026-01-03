@@ -1,0 +1,258 @@
+/* === KERANJANG BELANJA STYLES (DARK MODE) === */
+
+/* Header Halaman */
+.cart-header-title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.cart-header-title h1 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+.cart-header-title p {
+    color: #94a3b8;
+}
+
+/* Container Utama */
+.cart-page {
+    background: #131629;
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid rgba(160, 196, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    min-height: 400px;
+}
+
+/* Alert Messages */
+.alert {
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.alert-success {
+    background: rgba(21, 87, 36, 0.2);
+    color: #75b798;
+    border: 1px solid rgba(21, 87, 36, 0.4);
+}
+.alert-error {
+    background: rgba(231, 76, 60, 0.2);
+    color: #e74c3c;
+    border: 1px solid rgba(231, 76, 60, 0.4);
+}
+
+/* Kondisi Kosong */
+.cart-empty {
+    text-align: center;
+    padding: 4rem 1rem;
+}
+.cart-empty i {
+    font-size: 4rem;
+    color: #344e89;
+    margin-bottom: 1.5rem;
+    opacity: 0.5;
+}
+.cart-empty p {
+    font-size: 1.2rem;
+    color: #cbd5e1;
+    margin-bottom: 2rem;
+}
+
+/* Tabel Keranjang */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto; /* Scroll horizontal di HP */
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    border: 1px solid rgba(160, 196, 255, 0.1);
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px; /* Lebar minimal agar layout tidak hancur di HP */
+}
+
+.cart-table th {
+    background: #1c2540;
+    color: #a0c4ff;
+    font-weight: 700;
+    padding: 1.2rem;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    border-bottom: 2px solid rgba(160, 196, 255, 0.1);
+}
+
+.cart-table td {
+    padding: 1.2rem;
+    border-bottom: 1px solid rgba(160, 196, 255, 0.05);
+    vertical-align: middle;
+    color: #cbd5e1;
+}
+
+.cart-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Gambar Produk di Tabel */
+.cart-img img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid rgba(160, 196, 255, 0.2);
+}
+
+.product-name {
+    font-weight: 600;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.cart-harga, .cart-subtotal {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+}
+
+.cart-subtotal {
+    color: #a0c4ff;
+}
+
+/* Kontrol Jumlah (Qty) */
+.qty-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.quantity-input-cart {
+    width: 60px;
+    padding: 6px;
+    background: #0f1221;
+    border: 1px solid rgba(160, 196, 255, 0.2);
+    color: #fff;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* Tombol Icon (Update & Hapus) */
+.btn-icon-update, .btn-icon-hapus {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.btn-icon-update {
+    background: rgba(52, 152, 219, 0.15);
+    color: #3498db;
+}
+.btn-icon-update:hover {
+    background: #3498db;
+    color: #fff;
+}
+
+.btn-icon-hapus {
+    background: rgba(231, 76, 60, 0.15);
+    color: #e74c3c;
+}
+.btn-icon-hapus:hover {
+    background: #e74c3c;
+    color: #fff;
+}
+
+/* Footer Tabel (Total) */
+.cart-table tfoot td {
+    background: #1c2540;
+    padding: 1.5rem;
+    border-top: 2px solid rgba(160, 196, 255, 0.1);
+}
+
+.total-label {
+    text-align: right;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #fff;
+    padding-right: 2rem;
+}
+
+.total-value {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #a0c4ff;
+}
+
+/* Bagian Tombol Checkout */
+.cart-checkout {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: #344e89;
+    color: #fff;
+    border: 1px solid #344e89;
+}
+.btn-primary:hover {
+    background: #253560;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 78, 137, 0.4);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #a0c4ff;
+    border: 1px solid #344e89;
+}
+.btn-secondary:hover {
+    background: #344e89;
+    color: #fff;
+}
+
+/* Responsif Mobile */
+@media (max-width: 768px) {
+    .cart-page {
+        padding: 1.5rem;
+    }
+    
+    .cart-checkout {
+        flex-direction: column-reverse;
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Penyesuaian font di tabel agar tidak terlalu kecil tapi muat */
+    .cart-table th, .cart-table td {
+        padding: 1rem 0.8rem;
+    }
+}
