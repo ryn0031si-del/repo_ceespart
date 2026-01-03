@@ -1,0 +1,199 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* LATAR BELAKANG */
+body {
+  /* Gradasi Background: Deep Dark ke Primary Blue */
+  background: linear-gradient(135deg, #090a1a, #344e89);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+}
+
+/* WRAPPER */
+.wrapper {
+  position: relative;
+  /* Background Card: Navy Gelap */
+  background: #131629;
+  border-radius: 20px;
+  /* Shadow & Border halus untuk Dark Mode */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, .5);
+  border: 1px solid rgba(160, 196, 255, 0.1);
+  width: 850px;
+  max-width: 100%;
+  display: flex;
+  overflow: hidden;
+  transition: .8s cubic-bezier(.77,0,.175,1);
+}
+
+/* FORM */
+.form-container {
+  width: 50%;
+  padding: 40px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+  color: #a0c4ff; /* Judul warna Highlight */
+}
+
+.form-container p {
+  color: #cbd5e1; /* Teks deskripsi abu-abu terang */
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container input {
+  padding: 12px 15px;
+  margin: 10px 0;
+  /* Input field gelap */
+  background: #090a1a;
+  color: #fff;
+  border: 1px solid rgba(160, 196, 255, 0.2);
+  border-radius: 10px;
+  transition: .3s;
+}
+
+.form-container input:focus {
+  border: 2px solid #a0c4ff; /* Focus border highlight */
+  outline: none;
+}
+
+.form-container button.submit-btn {
+  margin-top: 15px;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  /* Gradient Tombol: Primary ke Gelap */
+  background: linear-gradient(to right, #344e89, #253560);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.form-container button.submit-btn:hover {
+  /* Hover membalikkan arah gradient/lebih terang */
+  background: linear-gradient(to left, #a0c4ff, #344e89);
+  color: #090a1a;
+}
+
+/* TOGGLE PANEL */
+.toggle-container {
+  width: 50%;
+  height: 100%;
+  /* Gradient Panel Samping */
+  background: linear-gradient(to bottom right, #344e89, #090a1a);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  border-radius: 20px 0 0 20px;
+  transform-origin: left center;
+  clip-path: ellipse(100% 120% at left center);
+  transition: .8s cubic-bezier(.77,0,.175,1);
+}
+
+.wrapper.active .toggle-container {
+  transform: translateX(105%) scale(.95, 1.05);
+  border-radius: 0 20px 20px 0;
+  clip-path: ellipse(100% 120% at right center);
+}
+
+/* TOGGLE TEXT */
+.toggle-container h2,
+.toggle-container p {
+  margin-bottom: 20px;
+}
+/* Memastikan teks di panel toggle tetap putih/terang */
+.toggle-container h2 { color: #fff; }
+.toggle-container p { color: #cbd5e1; }
+
+.toggle-container button.switch-btn {
+  padding: 8px 25px;
+  background: transparent;
+  border: 2px solid #a0c4ff; /* Border highlight */
+  color: #fff;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.toggle-container button.switch-btn:hover {
+  background: #a0c4ff;
+  color: #090a1a;
+}
+
+/* MESSAGE (Alerts disesuaikan Dark Mode) */
+.message {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.error {
+  background-color: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+  border: 1px solid rgba(231, 76, 60, 0.4);
+}
+
+.success {
+  background-color: rgba(46, 204, 113, 0.2);
+  color: #2ecc71;
+  border: 1px solid rgba(46, 204, 113, 0.4);
+}
+
+/* FORGOT PASSWORD */
+.forgot-password {
+  color: #a0c4ff; /* Link highlight */
+  margin-top: 8px;
+  font-size: .9rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.forgot-password:hover {
+  color: #fff;
+}
+
+/* RESPONSIVE */
+@media(max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+    width: 95%;
+  }
+  .form-container,
+  .toggle-container {
+    width: 100%;
+  }
+  .toggle-container {
+    position: relative;
+    clip-path: none;
+    transform: none !important;
+  }
+}
